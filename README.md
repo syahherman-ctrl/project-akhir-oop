@@ -1,91 +1,120 @@
-# project-akhir-oop
-# Java CRUD Application
+# 📚 GUI_CRUD_Hermansyah — Aplikasi CRUD Data Siswa
 
-Aplikasi CRUD (Create, Read, Update, Delete) sederhana yang dibuat menggunakan Java Swing dan MySQL. Project ini digunakan untuk mengelola data siswa melalui antarmuka grafis (GUI) dengan fitur tambah, tampil, ubah, dan hapus data.
+Aplikasi desktop berbasis Java Swing untuk manajemen data siswa menggunakan konsep *Object-Oriented Programming (OOP)* dengan koneksi database MySQL.
 
-## Fitur
+---
 
-* Menampilkan data siswa
-* Menambahkan data siswa
-* Mengubah data siswa
-* Menghapus data siswa
-* Pencarian data siswa
-* Koneksi ke database MySQL menggunakan JDBC
+## 🧰 Teknologi yang Digunakan
 
-## Teknologi yang Digunakan
+| Teknologi | Keterangan |
+|-----------|------------|
+| Java (Swing) | Framework GUI desktop |
+| MySQL | Database penyimpanan data siswa |
+| JDBC | Koneksi Java ke database |
+| Maven | Build tool & dependency management |
+| IntelliJ IDEA | IDE pengembangan |
 
-* Java
-* Java Swing
-* JDBC
-* MySQL
-* Apache Maven
-* NetBeans IDE
+---
 
-## Struktur Project
+## 📁 Struktur Project
 
-```text
-src/
-├── main/
-│   ├── java/
-│   │   ├── javatutorial/
-│   │   │   ├── FormSiswa.java
-│   │   │   ├── Koneksi.java
-│   │   │   └── ...
-│   └── resources/
-```
 
-## Persyaratan
+GUL_CRUD_Fikri/
+├── src/
+│   └── main/
+│       └── java/
+│           └── org/example/
+│               ├── DatabaseConnection.java   # Konfigurasi koneksi ke MySQL
+│               ├── StudentDAO.java           # Data Access Object (CRUD logic)
+│               ├── FormSiswa.java            # GUI utama (Swing JFrame)
+│               └── Main.java                 # Entry point aplikasi
+├── pom.xml                                   # Konfigurasi Maven
+└── README.md
 
-* JDK 17 atau lebih baru
-* MySQL Server
-* NetBeans IDE (opsional)
-* Maven
 
-## Konfigurasi Database
+---
 
-1. Buat database MySQL:
+## 🗄️ Skema Database
 
-```sql
+Buat database dan tabel berikut di MySQL sebelum menjalankan aplikasi:
+
+sql
 CREATE DATABASE db_siswa;
-```
 
-2. Buat tabel siswa:
+USE db_siswa;
 
-```sql
 CREATE TABLE students (
-    nis VARCHAR(20) PRIMARY KEY,
-    nama VARCHAR(100),
-    jenis_kelamin VARCHAR(20),
-    alamat TEXT
+    nis     VARCHAR(20) PRIMARY KEY,
+    nama    VARCHAR(100) NOT NULL,
+    jurusan VARCHAR(100),
+    jk      VARCHAR(15),
+    alamat  TEXT
 );
-```
 
-3. Sesuaikan konfigurasi koneksi database pada file `Koneksi.java`:
 
-```java
-String url = "jdbc:mysql://localhost:3306/tutorialjava";
+---
+
+## ⚙️ Konfigurasi Koneksi Database
+
+Edit file DatabaseConnection.java sesuai konfigurasi MySQL lokal kamu:
+
+java
+// Contoh konfigurasi
+String url  = "jdbc:mysql://localhost:3306/db_siswa";
 String user = "root";
-String password = "";
-```
+String pass = "password_kamu";
 
-## Cara Menjalankan
 
-### Menggunakan NetBeans
+---
 
-1. Buka project di NetBeans.
-2. Pastikan database MySQL aktif.
-3. Jalankan project dengan menekan tombol **Run Project**.
+## 🚀 Cara Menjalankan
 
-### Menggunakan Maven
+1. Clone atau download repository ini
+2. Buka project di IntelliJ IDEA
+3. Pastikan MySQL berjalan dan database sudah dibuat
+4. Sesuaikan konfigurasi di DatabaseConnection.java
+5. Jalankan Main.java atau FormSiswa.java
 
-```bash
-mvn clean compile
-mvn exec:java
-```
-## Kontributor
+---
 
-* Hermansyah
+## ✨ Fitur Aplikasi
 
-## Lisensi
+| Fitur | Deskripsi |
+|-------|-----------|
+| ➕ *Simpan* | Menambahkan data siswa baru ke database |
+| 📋 *Tampil* | Menampilkan seluruh data siswa di tabel |
+| ✏️ *Update* | Memperbarui data siswa berdasarkan NIS |
+| 🗑️ *Hapus* | Menghapus data siswa berdasarkan NIS |
+| 🔄 *Reset* | Mengosongkan semua field input |
+| 🖱️ *Klik baris* | Klik data di tabel → otomatis mengisi form |
 
-Project ini dibuat untuk tujuan pembelajaran dan pengembangan aplikasi Java CRUD.
+---
+
+## 🏗️ Konsep OOP yang Diterapkan
+
+- *Encapsulation* — Data siswa dikelola melalui class StudentDAO, memisahkan logika akses data dari tampilan GUI
+- *Abstraction* — Class DatabaseConnection menyembunyikan detail koneksi JDBC dari kelas lain
+- *Separation of Concerns* — Tampilan (FormSiswa), logika data (StudentDAO), dan koneksi (DatabaseConnection) dipisahkan ke masing-masing class
+- *DAO Pattern* — Pola Data Access Object diterapkan untuk memisahkan operasi database dari logika bisnis
+
+---
+
+## 📸 Tampilan Aplikasi
+
+Form input di sisi kiri memungkinkan pengguna memasukkan NIS, Nama, Jurusan, Jenis Kelamin, dan Alamat. Data yang tersimpan langsung ditampilkan pada tabel di sisi kanan secara real-time.
+
+---
+
+## 👤 Informasi Pengembang
+
+| | |
+|-|-|
+| *Nama* | Hermansyah |
+| *NIM* | I.2510857 |
+| *Program Studi* | Teknik Informatika |
+| *Universitas* | Universitas Djuanda Bogor (UNIDA) |
+| *Mata Kuliah* | Pemrograman Berorientasi Objek |
+
+---
+
+> Tugas Akhir — Mata Kuliah Pemrograman Berorientasi Objek (OOP)
