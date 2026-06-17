@@ -3,7 +3,7 @@
  */
 
 package com.mycompany.java_crud;
-
+import javatutorial.FormSiswa;
 /**
  *
  * @author Admin
@@ -11,6 +11,10 @@ package com.mycompany.java_crud;
 public class Java_crud {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FormSiswa().setVisible(true);
+            }
+        });
     }
 }
