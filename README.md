@@ -19,7 +19,7 @@ Aplikasi desktop berbasis Java Swing untuk manajemen data siswa menggunakan kons
 ## 📁 Struktur Project
 
 
-GUL_CRUD_Fikri/
+GUL_CRUD_Hermansyah/
 ├── src/
 │   └── main/
 │       └── java/
